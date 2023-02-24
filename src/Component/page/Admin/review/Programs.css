@@ -1,0 +1,45 @@
+.container {
+    max-width: 110rem;
+    padding: 1rem;
+
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(20rem, 1fr));
+    grid-gap: 1.5rem;
+    
+}
+.card {
+    background: #262525;
+    color: #fff;
+    padding: 1.5rem;
+    overflow: hidden;
+    border-radius: 0.8rem;
+}
+
+.cardTitleLarge {
+    font-family: fantasy, sans-serif;
+    font-size: 10rem;
+    letter-spacing: 0.5rem;
+    color: #1d1d1d;
+    transform: translateX(7rem);
+    transition: transform 2.5s;
+}
+
+.cardTitleSmall {
+    margin-bottom: 1rem;
+}
+
+.cardDescription {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.card:hover {
+    background-color: #3928d8;
+}
+.card:hover .cardTitleLarge {
+    transform: translateX(-115%);
+}

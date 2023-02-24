@@ -1,0 +1,82 @@
+.content {
+    display: flex;
+    justify-content: center;
+
+}
+.formMenuUser {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #00092c;
+    width: 550px;
+    height: 60%;
+    border-radius: 20px;
+    font-family: "Roboto", sans-serif;
+    top: 5%;
+    box-shadow: 25px 25px 75px rgba(2, 58, 171, 0.582);
+    margin-top: 3%;
+}
+
+.title {
+    top: 3%;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.group {
+    position: relative;
+    margin: 25px 0;
+
+}
+
+.input {
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 350px;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.label {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 1px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label {
+    top: -20px;
+    font-size: 16px;
+    color: rgba(0, 21, 255, 0.637);
+    width: 100%;
+}
+
+.buttonAdd {
+    color: #ffffff;
+    flex-direction: column;
+    font-size: 26px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-top: 5%;
+    transition: 0.5s ease;
+}
+
+.buttonAdd:hover{
+    color: rgba(8, 24, 203, 0.637);
+
+}

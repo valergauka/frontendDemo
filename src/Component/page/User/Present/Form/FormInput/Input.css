@@ -1,0 +1,29 @@
+input {
+    margin-left: 10%;
+}
+
+.cart {
+    position: relative;
+    /* background-color: rgb(246, 208, 250); */
+    width: 83%;
+    margin-left: 10%;
+    border-bottom: 1px solid black;
+
+}
+
+.suggestion {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: start;
+}
+
+.suggestion:hover {
+    border-bottom: 4px solid #8250e56b;
+    border-left: 3px solid #8250e56b;
+    border-right: 3px solid #8250e56b;
+    border-top: 2px solid #8250e56b;
+    border-radius: 5px;
+}

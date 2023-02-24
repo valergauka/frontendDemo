@@ -1,0 +1,84 @@
+.back {
+    position: absolute;
+    font-size: 40px;
+    margin: 2% 0 0 2% ;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+    color: black;
+}
+
+
+.back:hover {
+    opacity: 0.5;
+    color: rgb(161, 106, 106);
+  }
+
+form label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form input {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+label[for] {
+    color: #5a5a5a;
+    font-weight: 600;
+    margin: 18px 0 5px 0;
+    width: 83%;
+    font-size: 18px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input.inputText {
+    padding: 12px;
+    background: linear-gradient(90deg, #03a8f407, #f441a601, #ffeb3b0f, #03a8f416);
+    background-size: 300%;
+    font-size: 18px;
+    outline: none;
+    transition: 250ms ease-in-out all; 
+    width: 80%;
+    border-top: #5a5a5a;
+    border-right: #5a5a5a;
+}
+
+input.inputText,
+label[for] {
+    margin-left: 10%;
+}
+
+input.inputText:focus{
+    color: #5a5a5a;
+    border-bottom: 5px solid #8250e56a;
+    border-left: 2px solid #8250e56b;
+}
+
+
+.spetializanion,
+.subjSpetializanion {
+    display: none;
+}
+
+.spetializanion.active {
+    display: block;
+}
+
+.subjSpetializanion.activ{
+    display: block;
+}
+
+

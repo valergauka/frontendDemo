@@ -1,0 +1,13 @@
+.headerNav {
+  margin-left: 10%;
+}
+
+.link1,
+.link2 {
+  color: #fff;
+  text-decoration: none;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 0px;
+  margin-right: 20px;
+}
