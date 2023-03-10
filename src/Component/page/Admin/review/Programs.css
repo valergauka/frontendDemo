@@ -1,6 +1,8 @@
 .container {
+    position: relative;
     max-width: 110rem;
     padding: 1rem;
+    
 
 }
 
@@ -9,37 +11,41 @@
     grid-template-columns: repeat(
         auto-fit, minmax(20rem, 1fr));
     grid-gap: 1.5rem;
+    margin: 1.5em;
     
 }
 .card {
-    background: #262525;
+    background: #262525b8;
     color: #fff;
     padding: 1.5rem;
     overflow: hidden;
     border-radius: 0.8rem;
 }
-
-.cardTitleLarge {
-    font-family: fantasy, sans-serif;
-    font-size: 10rem;
-    letter-spacing: 0.5rem;
-    color: #1d1d1d;
-    transform: translateX(7rem);
-    transition: transform 2.5s;
-}
-
-.cardTitleSmall {
-    margin-bottom: 1rem;
-}
-
-.cardDescription {
-    font-size: 1.4rem;
-    line-height: 1.5;
+.card p {
+    font-size: 0.9em;
 }
 
 .card:hover {
-    background-color: #3928d8;
+    background-color: #0d0a2d;
 }
 .card:hover .cardTitleLarge {
     transform: translateX(-115%);
+}
+
+.date {
+    float: right;
+}
+
+
+.iconCard {
+    margin-top: 1em;
+    margin-left: 0.3em;
+    font-size: 1.2em;
+    color: red;
+    transition: opacity 500ms ease;
+}
+
+.iconCard:hover{
+    opacity: 0.4;
+    transform: scale(1.5);
 }

@@ -1,13 +1,8 @@
 .category {
     color: #ffffff;
     border-radius: 8px;
-    width: 270px;
-    transition: 0.5s ease;
-    overflow: hidden;
-    transform: translate(0);
-    background-size: cover;
-    transform: scale(1.01);
     margin-right: 20px;
+    flex: 17em 1 17em;
 }
 
 h5, p {
@@ -20,8 +15,6 @@ h5, p {
     top: 0;
     left: 0;
     z-index: -1;
-    width: 100%;
-    height: 100%;
     opacity: 0.8;
 }
 

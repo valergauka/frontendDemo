@@ -1,8 +1,10 @@
+import './FormPdf.css';
+
 const CategoriesPdf = (props) => {
     return (
-        <div>
-            <label>{props.category.titule}</label>
-            <input type="text" name={props.category.name} />
+        <div className="categoriPDF">
+            <label className='title'>{props.category.titule}</label>
+            <input type="file"accept="application/pdf" name={props.category.name} />
         </div>
     );
 };

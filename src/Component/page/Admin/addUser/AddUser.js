@@ -9,22 +9,27 @@ const AddUser = () => {
                 <h5 className="title">Add User</h5>
                 <div className="group">
                     <input type='text' className="input" required='true' />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
                     <label className="label">Name</label>
                 </div>
                 <div className="group">
                     <input type='email' className="input" required='true' />
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
                     <label className="label">Email</label>
                 </div>
                 <div className="group">
                     <input type='password' className="input" required='true' />
-
+                    <span className="highlight"></span>
+                    <span className="bar"></span>
                     <label className="label">Password</label>
                 </div>
                 <div className="buttonAdd">
                     Add
                 </div>
             </div>
-            <Buttons/>
+            <Buttons />
         </div>
     );
 }

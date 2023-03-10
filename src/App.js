@@ -14,6 +14,8 @@ import AddUser from './Component/page/Admin/addUser/AddUser';
 import Users from './Component/page/Admin/user/Users';
 import NET from './network';
 import Approve from "./Component/page/Commission/Review/reviewItem/approve/Approve";
+import OPs from "./Component/page/Admin/op/OPs";
+import AddOP from "./Component/page/Admin/op/AddOP";
 
 
 class App extends React.Component {
@@ -34,7 +36,7 @@ class App extends React.Component {
         },
         {
           id: 3,
-          title: 'Оновлення сладу проєктної групи'
+          title: 'Оновлення складу проєктної групи'
         },
         {
           id: 4,
@@ -93,7 +95,10 @@ class App extends React.Component {
     this.addToOrder =this.addToOrder.bind(this)
     this.openCart = this.openCart.bind(this)
     this.chooseCategory = this.chooseCategory.bind(this)
+    this.deleteReview = this.deleteReview.bind(this)
   }
+
+
 
   componentDidMount() {
     fetch(`${NET.APP_URL}/review`)
@@ -128,13 +133,22 @@ class App extends React.Component {
       <Route path="/review/cart" exact><ReviewItem  cart={this.state.cart}  /></Route>
       <Route path='/review/cart/approve' exact><Approve cart={this.state.cart}/></Route>
     
-      <Route path="/program"><Programs/></Route>
-      <Route path={'/adduser'}><AddUser/></Route>
-      <Route path={'/users'}><Users/></Route>
+      <Route path="/program" exact><Programs reviews={currenItems} onDelete={this.deleteReview} /></Route>
+      <Route path='/adduser' exact><AddUser/></Route>
+      <Route path='/users' exact><Users/></Route>
+      <Route path='/op'><OPs/> </Route>
+      <Route path='/addop'><AddOP/> </Route>
       
     </div>
   );
   }
+
+  deleteReview (id)  {
+    this.setState(
+      {reviews: this.state.reviews.filter(el => el.id !== id)}
+    )
+  }
+
   addToOrder(item) {
     this.setState({orders: [this.state.orders, item] })
   }

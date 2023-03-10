@@ -11,6 +11,7 @@ form label {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    
 }
 
 form input {
@@ -19,23 +20,40 @@ form input {
     justify-content: center;
     align-items: center;
 } 
-label {
+
+.formApp {
+    display: flex;
+    flex-direction: row;
+}
+
+.label {
+    position: relative;
     color: #5a5a5a;
     font-weight: 600;
-    margin: 18px 0 5px 0;
+    margin: 1em 4em;
     width: 83%;
-    font-size: 18px;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-top: 3em;
 }
 
 .date-num {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
+    margin-left: 5%;
+    width: 15em;
+    height: 3em;
 }
 
-.date-num input {
-    width: 10em;
-    margin: 3%;
+
+.labelOn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 10%;
 }
 
 .date-num input {
@@ -46,8 +64,15 @@ label {
     font-size: 1em;
     outline: none;
     transition: 250ms ease-in-out all; 
-    width: 14%;
     border-top: #5a5a5a;
     border-right: #5a5a5a;
     text-align: center;
+}
+
+
+.comentForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
 }

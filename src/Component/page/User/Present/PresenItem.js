@@ -8,7 +8,7 @@ export class PresentItem extends Component {
     return (
         <div>
           <div onClick={() => this.props.onAdd(this.props.button)}>
-            <Link className='buttonLink'  to='/present/form'>
+            <Link className='buttoncomentFormLink'  to='/present/form'>
                 <Button title={this.props.button.title}/>
             </Link>
             </div>  

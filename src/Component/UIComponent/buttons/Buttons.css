@@ -1,4 +1,11 @@
-.fab {
+.bacbut > .fab.open {
+    position: fixed;
+    
+    background: #ffffffeb;
+    z-index: 9999;
+}
+
+ .fab {
     position: fixed;
     right: 35px;
     bottom: 38px;
@@ -21,10 +28,17 @@ button {
     height: 70px;
     border-radius: 50%;
     border: 0;
-    background: #00092c;
+    background: #0205105d;
     color: #f9f9f9;
     transition: 0.2s;
     box-shadow: 25px 25px 75px rgba(2, 58, 171, 0.582);
+    font-size: 1.2em;
+    transition: opacity 500ms ease;
+}
+
+.fab > button:hover {
+    background: #00092c;
+    transform: scale(1.5);
    
     
 }
@@ -79,6 +93,7 @@ button {
 .menu > a > button:hover {
     background: #00092c;
     box-shadow: 25px 25px 75px rgba(2, 58, 171, 0.582);
+
    
 }
 

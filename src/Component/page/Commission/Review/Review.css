@@ -10,7 +10,7 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    height: auto;
     align-items: center;
     justify-content: center;
     perspective: 30rem;

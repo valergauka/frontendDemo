@@ -13,10 +13,10 @@ export default function FormPdf(props) {
           </div>
           <form  className='form'>
             {props.categories.map(el =>(<CategoriesPdf key={el.id} category={el} />))}
-            <div className='formButton'>
+          </form>
+          <div className='formButton'>
               <Button title='Подати'/>
             </div>
-          </form>
         </main>
     </div>
     

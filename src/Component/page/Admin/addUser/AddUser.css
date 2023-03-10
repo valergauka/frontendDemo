@@ -9,8 +9,8 @@
     align-items: center;
     flex-direction: column;
     background-color: #00092c;
-    width: 550px;
-    height: 60%;
+    width: 650px;
+    height: auto;
     border-radius: 20px;
     font-family: "Roboto", sans-serif;
     top: 5%;
@@ -33,7 +33,7 @@
 .input {
     font-size: 16px;
     padding: 10px 10px;
-    width: 350px;
+    width: 400px;
     border: none;
     border-bottom: 1px solid #ffffff;
     background: transparent;
@@ -50,8 +50,8 @@
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 5px;
-    top: 1px;
+    left: -1.2em;
+    top: -5em;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -59,10 +59,65 @@
 
 .input:focus ~ .label,
 .input:valid ~ .label {
-    top: -20px;
+    top: -2em;
     font-size: 16px;
-    color: rgba(0, 21, 255, 0.637);
+    color: #B8B6AB;
     width: 100%;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.bar::before,
+.bar::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar::before{
+    left: 50%;
+}
+
+.bar::after{
+    right: 50%;
+}
+
+.input:focus ~ .bar::before,
+.input:focus ~ .bar::after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 0px;
+    top: 25%;
+    left: 2.7em;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus ~ .highlight{
+    animation: input-focus 0.5s ease;
+}
+
+@keyframes input-focus {
+    from {
+        background: #B8B6AB;
+    }
+    to {
+        width: 100%;
+        background: transparent;
+    }
 }
 
 .buttonAdd {
@@ -74,9 +129,10 @@
     padding: 10px;
     margin-top: 5%;
     transition: 0.5s ease;
+    margin-bottom: 1.5em;
 }
 
 .buttonAdd:hover{
-    color: rgba(8, 24, 203, 0.637);
+    color: #B8B6AB;
 
 }

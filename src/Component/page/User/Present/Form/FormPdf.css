@@ -1,36 +1,35 @@
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-gap: 1.5em;
+}
 
-.form label {
-    width: 100%;
+.categoriPDF {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.categoriPDF label{
     display: flex;
     justify-content: center;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    flex-direction: column;
-}
-
-.form input {
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10%;
     align-items: center;
+    font-size: 15px;
 }
-
 
 label {
     color: #5a5a5a;
     font-weight: 600;
-    margin: 18px 0 5px 0;
     width: 83%;
     font-size: 18px;
 }
 
 .form input{
     padding: 12px;
-    color: #9e9d9d;
-    width: 75%;
+    color: #847e7e;
     background: linear-gradient(90deg, #03a8f407, #f441a601, #ffeb3b0f, #03a8f416);
     background-size: 300%;
-    font-size: 18px;
+    font-size: 0.7em;
     outline: none;
     border-top: #9e9d9d;
     border-right: #9e9d9d;

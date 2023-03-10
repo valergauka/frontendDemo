@@ -1,58 +1,19 @@
 import React from "react";
+import Program from './Program';
 import Buttons from "../../../UIComponent/buttons/Buttons"
 
 
 import './Programs.css';
 
-const Review = () => {
-    const items = [
-        {
-            id: 1,
-            title: 'instagram',
-            text: ' this is a inst this is a inst this is a inst this is a inst this is a inst'
-
-        },
-        {
-            id: 2,
-            title: 'instagram',
-            text: 'this is a inst  this is a inst this is a inst this is a inst this is a inst this is a inst'
-
-        },
-        {
-            id: 3,
-            title: 'instagram',
-            text: 'this is a inst this is a inst this is a inst this is a inst this is a inst this is a inst'
-
-        },
-        {
-            id: 4,
-            title: 'instagram',
-            text: 'this is a inst'
-
-        },
-        {
-            id: 5,
-            title: 'instagram',
-            text: 'this is a inst  this is a inst this is a inst this is a inst this is a inst this is a inst'
-
-        },
-        {
-            id: 6,
-            title: 'instagram',
-            text: 'this is a inst this is a inst this is a inst this is a inst this is a inst this is a inst'
-
-        },
-        {
-            id: 7,
-            title: 'instagram',
-            text: 'this is a inst'
-
-        }
-
-    ];
+const Review = (props) => {
+    console.log(props.reviews)
     return (
         <div>
-            Programs
+            <div className="cards">
+                {props.reviews.map(el=> (
+                    <Program onDelete={props.onDelete} review={el} />
+                ))}
+            </div>
             <Buttons />
         </div>
     );
