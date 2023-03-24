@@ -10,6 +10,10 @@ const Input = (props) => {
     const onSuggestHandler = (text) => {
         setText(text);
         setSuggestions([]);
+        props.setValue({
+            ...props.value,
+            [props.nameInput]: text
+        })
     }
 
     const onChangeHandler = (text) => {
@@ -17,13 +21,18 @@ const Input = (props) => {
         if (text.length > 0) {
             matches = props.arrayData.filter(elem => {
                 const regex = new RegExp(`${text}`, 'gi')
-                return (elem.name.match(regex))
+                return (elem.match(regex))
             })
         }
 
         setSuggestions(matches)
         setText(text)
+        props.setValue({
+            ...props.value,
+            [props.nameInput]: text
+        })
     }
+
     return (
         <div>
             <input className='inputText'
@@ -32,14 +41,16 @@ const Input = (props) => {
                 placeholder={props.placeholderInput}
                 onChange={e => onChangeHandler(e.target.value)}
                 value={text} 
-                onInput={props.onInput}/>
+                onInput={props.onInput}
+
+                />
             <div className="cart">
                 {suggestions && suggestions.map((suggestions) =>
-                    <div key={suggestions.id}
+                    <div
                         className='suggestion'
-                        onClick={() => onSuggestHandler(suggestions.name)}
+                        onClick={() => onSuggestHandler(suggestions)}
                     >
-                        {suggestions.name}
+                        {suggestions}
                     </div>
                 )}
             </div>

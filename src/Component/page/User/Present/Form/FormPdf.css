@@ -4,6 +4,7 @@
     grid-gap: 1.5em;
 }
 
+
 .categoriPDF {
     display: flex;
     flex-direction: column;
@@ -36,10 +37,6 @@ label {
     transition: 250ms ease-in-out all;
 }
 
-input:focus {
-    border-bottom: 5px solid #8250e56a;
-    border-left: 2px solid #8250e56b;
-}
 
 
 .form.formButton {

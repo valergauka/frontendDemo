@@ -1,5 +1,6 @@
 .headerNav {
-  margin-left: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .link1,

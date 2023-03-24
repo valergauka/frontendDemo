@@ -154,7 +154,7 @@ class App extends React.Component {
   }
 
   openCart(item) {
-    this.setState({cart: [this.state.cart, item] })
+    this.setState({cart: [item] })
   }
 
   chooseCategory(category) {

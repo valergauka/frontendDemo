@@ -1,10 +1,11 @@
 .reviewMenu {
+    align-items: center;
     justify-content: center;
 }
 
 .buttonNav {
     display: inline;
-    margin: 40px;
+    margin-left: 30px;
 }
 
 .container {

@@ -13,161 +13,123 @@ import './Form.css';
 
 
 export default function FormLb(props) {
-  const branchName = [
-    {
-      id: 1,
-      name: '01 Математична статистика'
-    },
-    {
-      id: 2,
-      name: '02 Математика'
-    },
-    {
-      id: 3,
-      name: '03 Математичне знання'
-    }
-
-  ];
+  const branch = [];
+  const speciality = [];
+  const specialisation = [];
+  const ops = [];
   const facultyName = [
-    {
-      id: 1,
-      name: 'Навчально-науковий інститут біології, хімії та біоресурсів'
-    },
-    {
-      id: 2,
-      name: 'Навчально-науковий інститут фізико-технічних та комп`ютерних наук'
-    },
-    {
-      id: 3,
-      name: 'Факультет архітектури, будівництва та декорптивно-прикладного мистецтва'
-    },
-    {
-      id: 4,
-      name: 'Географічний факультет'
-    },
-    {
-      id: 5,
-      name: 'Економічний факультет'
-    },
-    {
-      id: 6,
-      name: 'Факультет іноземних мов'
-    },
-    {
-      id: 7,
-      name: 'Факультет історії, політології та міжнародних відносин'
-    },
-    {
-      id: 8,
-      name: 'Факультет математики та інформатики'
-    },
-    {
-      id: 9,
-      name: 'Факультет педагогіки, психології та соціальної роботи'
-    },
-    {
-      id: 10,
-      name: 'Факультет фізичної культури та здоров`я людини'
-    },
-    {
-      id: 11,
-      name: 'Філологічний факультет'
-    },
-    {
-      id: 12,
-      name: 'Юридичний факультет'
-    }
-
+    'Навчально-науковий інститут біології, хімії та біоресурсів',
+    'Навчально-науковий інститут фізико-технічних та комп`ютерних наук',
+    'Факультет архітектури, будівництва та декорптивно-прикладного мистецтва',
+    'Географічний факультет',
+    'Економічний факультет',
+    'Факультет іноземних мов',
+    'Факультет історії, політології та міжнародних відносин',
+    'Факультет математики та інформатики',
+    'Факультет педагогіки, психології та соціальної роботи',
+    'Факультет фізичної культури та здоров`я людини',
+    'Філологічний факультет',
+    'Юридичний факультет'
   ];
   const leveledUcc = [
-    {
-      id: 1,
-      name: 'Бакалавр'
-    },
-    {
-      id: 2,
-      name: 'Магістр'
-    },
-    {
-      id: 3,
-      name: 'Освітньо-науковий'
+    'Бакалавр',
+    'Магістр',
+    'Освітньо-науковий'
+  ];
+  const [op, setOp] = useState([]);
+  const category = props.orders[1].title;
+  let d = new Date()
+  const [value, setValue] = useState({category, date : d.toLocaleDateString()});
+
+  
+  function unique(arr) {
+    let result = [];
+    for (let str of arr) {
+      if (!result.includes(str)) {
+        result.push(str);
+      }
     }
-  ]
-  let [cartOpen, setCartOpen] = useState(0);
-  let [level, setLevel] = useState(false);
-  const [branch, setBranch] = useState([]);
+    return result;
+  }
 
   useEffect(() => {
-    const loadBranch = async () => {
-      const response = await axios.get(`${NET.APP_URL}/branch`);
-      setBranch(response.data)
+    const loadOp = async () => {
+      const response = await axios.get(`${NET.APP_URL}/op`);
+      setOp(response.data)
     }
-    loadBranch();
+    loadOp();
   }, [])
 
+  op.map(el => (
+    branch.push(el.branch),
+    speciality.push(el.speciality),
+    specialisation.push(el.specialisation),
+    ops.push(el.op)
+  ));
 
-  const Level = (event) => {
-    if (event.target.value === 'Магістр')
-      return setLevel(level = true)
-  }
-
-  const OpentCart = (event) => {
-    console.log(event.target.leveleducc)
-    if (event.target.value === '014' || event.target.value === '015' || event.target.value === '035') {
-      return setCartOpen(cartOpen = 1)
-    }
-    else {
-      if (event.target.value === '227' || level === true)
-        return setCartOpen(cartOpen = 1)
-    }
-
-
-
-    return setCartOpen(cartOpen = 0)
-  }
-
+  // console.log(value);
   return (
     <div>
       <Header />
-      <main className='mainForm'>
+      <main className='mainForm' >
         <Link to='/present' className='back' ><BsArrowLeftShort /></Link>
         <div className='title'>
-          {props.orders.map(el => (<h3 key={el.id}>{el.title}</h3>))}
+          <h3>{category}</h3>
         </div>
         <form className='formLable'>
           <label for="">Рівень осівіти:</label>
-          <Input nameInput='leveleducc' placeholderInput="Бакалавр/Магістр" arrayData={leveledUcc} onInput={Level} />
+          <Input nameInput='leveleducc' key={0}
+            placeholderInput="Бакалавр/Магістр" arrayData={leveledUcc} value={value} setValue={setValue} />
 
           <label for="">Галузь знань:</label>
-          <Input nameInput='branch' placeholderInput="Шифр та назва" arrayData={branch} />
+          <Input nameInput='branch' key={1} placeholderInput="Шифр та назва" arrayData={unique(branch)} value={value} setValue={setValue} />
 
           <label for="">Спеціальність:</label>
-          <Input nameInput='spetialty' placeholderInput="Код та назва" arrayData={branchName} onInput={OpentCart} />
+          <Input key={2} nameInput='speciality' placeholderInput="Код та назва" arrayData={unique(speciality)} value={value} setValue={setValue} />
 
-          <div className={`spetializanion ${cartOpen === 1 && 'active'}`}>
+          <div className={`spetializanion ${(value['speciality'] === '014 Середня освіта' ||
+            value['speciality'] === '015 Професійна освіта' ||
+            value['speciality'] === '035 Філологія' ||
+            (value['speciality'] === '227' && value['leveleducc'] === 'Магістр'))
+            && 'active'}`}>
             <label for="">Спеціалізація:</label>
-            <Input nameInput='spetialization' placeholderInput="Код та назва" arrayData={branchName} />
+            <Input key={3} nameInput='specialization' placeholderInput="Код та назва" arrayData={unique(specialisation)} value={value} setValue={setValue} />
           </div>
-{/* 
+          {/* 
           <div className={`subjSpetializanion ${cartOpen === 2 && 'activ'}`}>
             <label for="">Предметна спеціалізація:</label>
             <Input nameInput='subjSpetialization' placeholderInput="Код та назва" arrayData={branchName} />
           </div> */}
 
           <label for='' >Освітня програма:</label>
-          <Input nameInput='op' placeholderInput="Код та назва" arrayData={branchName} />
-
-
+          <Input key={4} nameInput='nameOp' placeholderInput="Код та назва" arrayData={unique(ops)} value={value} setValue={setValue} />
 
           <label for="">Гарант програми:</label>
-          <input type="text" className='inputText' name="guarantorProg" required placeholder="Прізвище ім`я по-батькові" />
-
+          <input
+            type="text"
+            className='inputText'
+            name="guaranty"
+            required placeholder="Прізвище ім`я по-батькові"
+            value={value['guaranty']}
+            onChange={(e) => setValue({
+              ...value,
+              ['guaranty']: e.target.value
+            })} />
 
           <label for="">Структурний підрозділ:</label>
-          <input type="text" className='inputText' name="structural" required placeholder="Кафедра, факултет/інститут..." />
+          <input
+            type="text"
+            className='inputText'
+            name="structural"
+            required placeholder="Кафедра, факултет/інститут..."
+            value={value['structural']}
+            onChange={(e) => setValue({
+              ...value,
+              ['structural']: e.target.value
+            })} />
 
           <label for="">Факультет/Інститут:</label>
-          <Input nameInput='faculty' placeholderInput="Повна назва" arrayData={facultyName} />
+          <Input key={5} nameInput='faculty' placeholderInput="Повна назва" arrayData={facultyName} value={value} setValue={setValue} />
 
           <Link to='/present/form/form' className='formButton'>
             <Button title="Далі" />

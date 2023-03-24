@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../UIComponent/Button';
 
+import './Present.css';
 
 export class PresentItem extends Component {
   render() {

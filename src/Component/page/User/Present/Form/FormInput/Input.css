@@ -5,19 +5,20 @@ input {
 .cart {
     position: relative;
     /* background-color: rgb(246, 208, 250); */
-    width: 83%;
+    width: 85%;
     margin-left: 10%;
-    border-bottom: 1px solid black;
 
 }
 
 .suggestion {
     position: relative;
+    width: 97%;
     cursor: pointer;
     border: none;
     font-size: 20px;
     display: flex;
     justify-content: start;
+    border-bottom: 2px solid rgb(147, 145, 145);
 }
 
 .suggestion:hover {
